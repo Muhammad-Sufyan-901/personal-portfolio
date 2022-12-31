@@ -41,7 +41,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Section Card Content */}
-          <div className="flex flex-col gap-y-5 lg:w-full w-[75%] lg:mx-0 mx-auto">
+          <div className="flex flex-col gap-y-5 lg:w-full w-[80%] lg:mx-0 mx-auto">
             {contactCardList.map(({ ContactIcon, title, contact, href }, index) => (
               <Link
                 href={href}
@@ -51,7 +51,7 @@ export default function Contact() {
               >
                 <ContactIcon className="text-[22px] text-primary" />
                 <h4 className="font-semibold">{title}</h4>
-                <span className="text-light font-medium text-[14px]">{contact}</span>
+                <span className="text-light font-medium lg:text-[14px] text-[12px]">{contact}</span>
                 <span className="text-primary font-normal text-[14px]">Send Me A Message</span>
               </Link>
             ))}
