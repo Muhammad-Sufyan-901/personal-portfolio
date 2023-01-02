@@ -37,7 +37,7 @@ export default function Contact() {
           {/* Contact Section Card Subtitle & Description */}
           <div className="flex flex-col gap-y-2">
             <SectionSubtitle className="lg:text-[26px]">Let's discuss your project</SectionSubtitle>
-            <SectionDescription classname="font-medium">Just contact me with this media below</SectionDescription>
+            <SectionDescription className="font-medium">Just contact me with this media below</SectionDescription>
           </div>
 
           {/* Contact Section Card Content */}
@@ -63,7 +63,7 @@ export default function Contact() {
           {/* Contact Section Form Subtitle & Description */}
           <div className="flex flex-col gap-y-2">
             <SectionSubtitle className="lg:text-[26px]">Feel free to contact me</SectionSubtitle>
-            <SectionDescription classname="font-medium">I'am always open to discussing product design work or partnerships</SectionDescription>
+            <SectionDescription className="font-medium">I'am always open to discussing product design work or partnerships</SectionDescription>
           </div>
 
           {/* Contact Section Form Input */}

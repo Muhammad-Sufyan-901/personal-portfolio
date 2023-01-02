@@ -1,5 +1,5 @@
-import { SiHtml5, SiCss3, SiJavascript, SiReact, SiTailwindcss, SiNextdotjs } from "react-icons/si";
-import { FaFileCode, FaAlignLeft, FaWhatsapp, FaFacebookF, FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa";
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiTailwindcss, SiNextdotjs, SiAngular, SiBootstrap } from "react-icons/si";
+import { FaFileCode, FaAlignLeft, FaWhatsapp, FaFacebookF, FaInstagram, FaTiktok, FaTwitter, FaGithub } from "react-icons/fa";
 import { MdOutlineScreenSearchDesktop, MdEmail } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
 
@@ -25,8 +25,12 @@ export const linkList = [
     href: "about",
   },
   {
-    title: "Skills",
-    href: "skills",
+    title: "Experiences",
+    href: "experiences",
+  },
+  {
+    title: "Works",
+    href: "works",
   },
   {
     title: "Services",
@@ -50,6 +54,10 @@ export const socialMediaList = [
   {
     SocialMediaIcon: FaInstagram,
     href: "https://instagram.com",
+  },
+  {
+    SocialMediaIcon: FaGithub,
+    href: "https://github.com/Muhammad-Sufyan-901",
   },
   {
     SocialMediaIcon: FaTiktok,
@@ -98,32 +106,42 @@ export const skillsList = [
   {
     SkillIcon: SiHtml5,
     title: "HTML",
-    percentage: "90%",
+    level: "Expert",
   },
   {
     SkillIcon: SiCss3,
     title: "CSS",
-    percentage: "85%",
+    level: "Expert",
   },
   {
     SkillIcon: SiJavascript,
     title: "JavaScript",
-    percentage: "80%",
+    level: "Intermediate",
   },
   {
     SkillIcon: SiReact,
     title: "React JS",
-    percentage: "75%",
+    level: "Intermediate",
   },
   {
     SkillIcon: SiNextdotjs,
     title: "Next JS",
-    percentage: "65%",
+    level: "Basic",
   },
   {
     SkillIcon: SiTailwindcss,
     title: "Tailwind CSS",
-    percentage: "75%",
+    level: "Intermediate",
+  },
+  {
+    SkillIcon: SiAngular,
+    title: "Angular JS",
+    level: "Basic",
+  },
+  {
+    SkillIcon: SiBootstrap,
+    title: "Bootstrap",
+    level: "Intermediate",
   },
 ];
 
