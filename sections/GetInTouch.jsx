@@ -23,7 +23,7 @@ export default function GetInTouch() {
             href={"/#contact"}
             type="primary"
             size="normal"
-            className="flex items-center gap-x-2 rounded-md px-6 lg:text-[1em] text-[14px]"
+            className="flex items-center gap-x-2 rounded-md xl:px-6 lg:px-4 xl:text-[1em] text-[0.8em]"
           >
             Get In Touch <FaPaperPlane />
           </Button>

@@ -28,7 +28,7 @@ export default function Header() {
       <div
         className={`${
           isScrolled ? "md:h-[calc(4rem_+_1rem)] h-[calc(3rem_+_1rem)]" : "md:h-[calc(5rem_+_1rem)] h-[calc(4rem_+_1rem)]"
-        } container w-full mx-auto lg:px-0 px-4 relative flex items-center justify-between py-5 transition-all duration-300`}
+        } xl:container max-w-[62.5rem] w-full mx-auto lg:px-0 px-4 relative flex items-center justify-between py-5 transition-all duration-300`}
       >
         {/* Header Logo */}
         <Link
@@ -40,7 +40,7 @@ export default function Header() {
         </Link>
 
         {/* Header Link */}
-        <div className="items-center gap-12 lg:flex hidden">
+        <div className="items-center gap-12 xl:flex hidden">
           {linkList.map(({ title, href }, index) => (
             <Link
               key={index}
@@ -59,7 +59,7 @@ export default function Header() {
           href={"/#contact"}
           type="primary"
           size="normal"
-          className="px-10 rounded-[2rem] shadow-sm lg:flex hidden"
+          className="px-10 rounded-[2rem] shadow-sm xl:flex hidden"
         >
           Contact Me
         </Button>
@@ -67,7 +67,7 @@ export default function Header() {
         {/* Header Sidebar Links Open / Close Button */}
         <button
           onClick={handleSidebarOpen}
-          className="lg:hidden flex items-center justify-center p-4 bg-primary text-white rounded-md transition-all duration-300"
+          className="xl:hidden flex items-center justify-center p-4 bg-primary text-white rounded-md transition-all duration-300"
         >
           {isSidebarOpen ? <IoClose /> : <HiMenu />}
         </button>

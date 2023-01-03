@@ -31,7 +31,7 @@ export default function Contact() {
       <SectionTitle>Contact Me</SectionTitle>
 
       {/* Contact Section Container */}
-      <div className="lg:max-w-[1150px] lg:w-full w-[80%] mx-auto grid lg:grid-cols-[30%_60%] grid-cols-1 lg:gap-[10%] gap-16">
+      <div className="xl:max-w-[71.875rem] lg:max-w-[62.5rem] lg:w-full w-[80%] mx-auto grid lg:grid-cols-[30%_60%] grid-cols-1 lg:gap-[10%] gap-16">
         {/* Contact Section Card */}
         <div className="flex flex-col gap-y-8">
           {/* Contact Section Card Subtitle & Description */}

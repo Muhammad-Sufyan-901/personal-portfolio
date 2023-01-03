@@ -10,14 +10,14 @@ export default function About() {
 
   return (
     <section
-      className="lg:h-screen h-full w-screen p-sectionPadding"
+      className="h-full w-screen p-sectionPadding"
       id="about"
     >
       {/* About Section Title */}
       <SectionTitle>About Me</SectionTitle>
 
       {/* About Content Container */}
-      <div className="max-w-sectionWidth mx-auto grid lg:grid-cols-[35%_50%] lg:gap-[15%] grid-cols-1 gap-4">
+      <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto grid lg:grid-cols-[35%_50%] lg:gap-[15%] grid-cols-1 gap-4">
         {/* About Image Content */}
         <div className="lg:w-full w-fit lg:mx-0 mx-auto lg:aspect-square rounded-[1rem] bg-primaryGradient grid place-items-center">
           <div className="lg:h-[40rem] md:h-[33rem] h-[22.5rem] overflow-hidden lg:rotate-[10deg] rotate-0 rounded-[1rem] transition-all duration-300 hover:rotate-0">

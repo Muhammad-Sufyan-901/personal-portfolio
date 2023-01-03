@@ -52,7 +52,7 @@ export default function Portfolio() {
       <SectionTitle>Portfolio</SectionTitle>
 
       {/* Portfolio Section Container */}
-      <div className="max-w-sectionWidth mx-auto">
+      <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto">
         {/* Portfolio Section Subtitle & Description */}
         <SectionSubtitle>Project i'm created</SectionSubtitle>
         <SectionDescription>I'm created a few project while i'm learing about frontend development. and the project i'll explain below</SectionDescription>
@@ -72,11 +72,11 @@ export default function Portfolio() {
                 />
               </div>
               <div className="flex flex-col gap-y-2">
-                <h3 className="font-semibold lg:text-[1.2em] text-[1em]">{title}</h3>
-                <h4 className="font-medium text-light lg:text-[1em] text-[0.85em]">{subtitle}</h4>
+                <h3 className="font-semibold xl:text-[1.2em] lg:text-[1.1em] text-[1em]">{title}</h3>
+                <h4 className="font-medium text-light xl:text-[1em] text-[0.85em]">{subtitle}</h4>
                 <p className="font-normal text-[0.9em]">{truncateString(description)}</p>
               </div>
-              <div className="flex items-center gap-x-5 lg:max-w-[85%] w-full mt-4">
+              <div className="flex items-center gap-x-5 xl:max-w-[85%] w-full mt-4">
                 <Button
                   href={"/"}
                   onClick={() => handleOpenModal(index)}

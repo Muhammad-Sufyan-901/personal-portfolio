@@ -10,7 +10,7 @@ export default function Works() {
       className="p-sectionPadding"
       id="works"
     >
-      <div className="max-w-sectionWidth mx-auto lg:my-0 md:my-10 my-6">
+      <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto lg:my-0 md:my-10 my-6">
         {/* Experience Section Subtitle & Description */}
         <SectionTitle>Works</SectionTitle>
         <SectionSubtitle>Work Experiences</SectionSubtitle>

@@ -13,7 +13,7 @@ export default function Experiences() {
       id="experiences"
     >
       {/* Experiences Section Container */}
-      <div className="max-w-sectionWidth mx-auto flex flex-col gap-y-20">
+      <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto flex flex-col gap-y-20">
         {/* Experiences Section Title */}
         <div>
           <SectionTitle>Experiences</SectionTitle>
@@ -28,7 +28,7 @@ export default function Experiences() {
                 key={index}
                 className="flex flex-col justify-center items-center gap-y-3 group cursor-pointer"
               >
-                <div className="p-5 bg-white/80 shadow-md text-primary w-fit rounded-full transition-all duration-300 group-hover:-translate-y-2">
+                <div className="p-5 bg-white/80 border-[1.5px] shadow-md text-primary w-fit rounded-full transition-all duration-300 group-hover:-translate-y-2">
                   <SkillIcon className="text-[2rem]" />
                 </div>
                 <div className="flex flex-col gap-y-2 text-center">
@@ -41,7 +41,7 @@ export default function Experiences() {
 
           {/* Skills Section Subtitle */}
           <div className="flex flex-col justify-center items-center lg:order-2 order-1 lg:text-end text-center">
-            <SectionSubtitle className="lg:text-end text-end">Skills & Experiences</SectionSubtitle>
+            <SectionSubtitle className="lg:text-end text-end">Skills & Tech Stack</SectionSubtitle>
             <p className="font-normal lg:max-w-[750px] md:max-w-[650px] md:text-[1em] text-[0.9em] lg:text-end text-center">There are some skills that i've learning and experienced below</p>
           </div>
         </div>

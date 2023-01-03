@@ -15,7 +15,7 @@ export default function Services() {
       <SectionTitle>Services</SectionTitle>
 
       {/* Services Section Container */}
-      <div className="max-w-sectionWidth mx-auto">
+      <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto">
         {/* Services Section Subtitle & Description */}
         <SectionSubtitle>What I'm Provide?</SectionSubtitle>
         <SectionDescription>I'm providing services about Website development, Software testing and Content writer that i'm gonna described below</SectionDescription>
@@ -25,7 +25,7 @@ export default function Services() {
           {servicesList.map(({ title, ServicesIcon, description, services }, index) => (
             <div
               key={index}
-              className={`w-full lg:h-fit h-auto bg-white rounded-b-[2rem] border-[1.5px] border-transparent transition-all duration-300 cursor-pointer shadow-cardShadow hover:shadow-2xl hover:border-primary`}
+              className={`w-full xl:h-fit h-auto bg-white rounded-b-[2rem] border-[1.5px] border-transparent transition-all duration-300 cursor-pointer shadow-cardShadow hover:shadow-2xl hover:border-primary`}
             >
               <div className="p-8 bg-primary text-white rounded-b-[2rem]">
                 <h3 className="lg:text-xl text-lg text-center font-semibold flex items-center gap-x-3 justify-center">

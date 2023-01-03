@@ -12,11 +12,11 @@ export default function Home() {
 
   return (
     <section
-      className="w-screen lg:h-screen h-full p-sectionPadding"
+      className="w-screen 2xl:h-screen h-full p-sectionPadding"
       id="home"
     >
       {/* Home Container */}
-      <div className="max-w-sectionWidth mx-auto grid lg:grid-cols-2 grid-cols-1 pt-16">
+      <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto grid lg:grid-cols-2 grid-cols-1 pt-16">
         {/* Home Text Info */}
         <div className="py-16 flex flex-col lg:items-start items-center lg:text-start text-center">
           <span className="font-semibold text-[#777777] text-base">Hello I'am</span>
