@@ -106,12 +106,12 @@ export const skillsList = [
   {
     SkillIcon: SiHtml5,
     title: "HTML",
-    level: "Expert",
+    level: "Advanced",
   },
   {
     SkillIcon: SiCss3,
     title: "CSS",
-    level: "Expert",
+    level: "Advanced",
   },
   {
     SkillIcon: SiJavascript,
