@@ -8,15 +8,15 @@ import { linkList, identity } from "../constants/data";
 import { Button, MobileNavbar } from "./index";
 
 export default function Header() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeNav, setActiveNav] = useState("home");
 
   const { name } = identity;
 
-  const handleSidebarOpen = () => setIsSidebarOpen(true);
+  const handleMobileNavOpen = () => setIsMobileNavOpen(true);
 
-  const handleSidebarClose = () => setIsSidebarOpen(false);
+  const handleMobileNavClose = () => setIsMobileNavOpen(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => (window.scrollY > 50 ? setIsScrolled(true) : setIsScrolled(false)));
@@ -66,14 +66,19 @@ export default function Header() {
 
         {/* Header Sidebar Links Open / Close Button */}
         <button
-          onClick={handleSidebarOpen}
+          onClick={handleMobileNavOpen}
           className="xl:hidden flex items-center justify-center p-4 bg-primary text-white rounded-md transition-all duration-300"
         >
-          {isSidebarOpen ? <IoClose /> : <HiMenu />}
+          {isMobileNavOpen ? <IoClose /> : <HiMenu />}
         </button>
 
         {/* Header Sidebar */}
-        {isSidebarOpen && <MobileNavbar handleSidebarClose={handleSidebarClose} />}
+        {isMobileNavOpen && (
+          <MobileNavbar
+            handleMobileNavClose={handleMobileNavClose}
+            isMobileNavOpen={isMobileNavOpen}
+          />
+        )}
       </div>
     </header>
   );
