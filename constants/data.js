@@ -155,7 +155,7 @@ export const skillsList = [
   },
   {
     SkillIcon: SiMysql,
-    title: "My SQL",
+    title: "MySQL",
     level: "Basic",
   },
   {
