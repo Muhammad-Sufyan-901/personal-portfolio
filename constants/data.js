@@ -1,4 +1,4 @@
-import { SiHtml5, SiCss3, SiJavascript, SiReact, SiTailwindcss, SiNextdotjs, SiAngular, SiBootstrap } from "react-icons/si";
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiTailwindcss, SiNextdotjs, SiAngular, SiBootstrap, SiPhp, SiCodeigniter, SiMysql, SiNodedotjs } from "react-icons/si";
 import { FaFileCode, FaAlignLeft, FaWhatsapp, FaFacebookF, FaInstagram, FaTiktok, FaTwitter, FaGithub } from "react-icons/fa";
 import { MdOutlineScreenSearchDesktop, MdEmail } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -142,6 +142,26 @@ export const skillsList = [
     SkillIcon: SiBootstrap,
     title: "Bootstrap",
     level: "Intermediate",
+  },
+  {
+    SkillIcon: SiPhp,
+    title: "PHP",
+    level: "Basic",
+  },
+  {
+    SkillIcon: SiCodeigniter,
+    title: "CodeIgniter 4",
+    level: "Basic",
+  },
+  {
+    SkillIcon: SiMysql,
+    title: "My SQL",
+    level: "Basic",
+  },
+  {
+    SkillIcon: SiNodedotjs,
+    title: "Node JS",
+    level: "Basic",
   },
 ];
 
