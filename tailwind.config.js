@@ -5,14 +5,18 @@ module.exports = {
     extend: {
       colors: {
         primary: "#6a59d1",
+        altPrimary: "#9153f4",
         secondary: "#0e2431",
+        altSecondary: "#132347",
         light: "#9d9d9d",
+        altLight: "#c5cadf",
       },
       backgroundColor: {
         glassmorph: "rgba(255, 255, 255, 0.1)",
       },
       backgroundImage: {
         primaryGradient: "linear-gradient(45deg, transparent, #6a59d1, transparent)",
+        altPrimaryGradient: "linear-gradient(45deg, transparent, #9153f4 , transparent)",
       },
       maxWidth: {
         sectionWidth: "1200px",

@@ -1,16 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { linkList, identity } from "../constants/data";
-import { Button, MobileNavbar } from "./index";
+import { MobileNavbar } from "./index";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeNav, setActiveNav] = useState("home");
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const { name } = identity;
 
@@ -23,7 +26,11 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`${isScrolled ? "shadow-lg lg:bg-glassmorph bg-white" : "shadow-none bg-transparent"} z-[100] fixed top-0 left-0 w-screen transition-all duration-300 lg:backdrop-blur-[20px]`}>
+    <header
+      className={`${
+        isScrolled && theme === "light" ? "shadow-lg lg:bg-glassmorph bg-white" : isScrolled && theme === "dark" ? "shadow-lg lg:bg-glassmorph bg-[#0e1b31]" : "shadow-none bg-transparent"
+      } z-[100] fixed top-0 left-0 w-screen transition-all duration-300 lg:backdrop-blur-[20px]`}
+    >
       {/* Header Container */}
       <div
         className={`${
@@ -34,7 +41,7 @@ export default function Header() {
         <Link
           href={"/"}
           scroll={false}
-          className="font-semibold lg:text-[1.5rem] text-lg text-primary"
+          className={`${theme === "light" ? "text-primary" : "text-altPrimary"} font-semibold lg:text-[1.5rem] text-lg`}
         >
           {name}
         </Link>
@@ -45,7 +52,17 @@ export default function Header() {
             <Link
               key={index}
               href={`/#${href}`}
-              className={`${activeNav === href ? "border-primary text-primary" : "border-transparent text-secondary"} border-b-2 text-base font-medium hover:text-primary transition`}
+              className={`${
+                theme === "light" && activeNav !== href
+                  ? "text-secondary border-transparent"
+                  : theme === "light" && activeNav === href
+                  ? "text-primary border-primary"
+                  : theme === "dark" && activeNav !== href
+                  ? "text-white border-transparent"
+                  : theme === "dark" && activeNav === href
+                  ? "text-altPrimary border-altPrimary"
+                  : ""
+              } border-b-2 text-base font-medium hover:text-primary transition`}
               onClick={() => setActiveNav(href)}
               scroll={false}
             >
@@ -54,20 +71,20 @@ export default function Header() {
           ))}
         </div>
 
-        {/* Header Contact Button */}
-        <Button
-          href={"/#contact"}
-          type="primary"
-          size="normal"
-          className="px-10 rounded-[2rem] shadow-sm xl:flex hidden"
-        >
-          Contact Me
-        </Button>
+        {/* Theme Toggle Button */}
+        <div className="w-[10rem] lg:flex hidden items-center justify-center">
+          <button
+            onClick={toggleTheme}
+            className={`${theme === "light" ? "text-black" : "text-white"} bg-glassmorph p-5 flex items-center justify-center rounded-full shadow-lg outline-none`}
+          >
+            {theme === "light" ? <BsMoonFill /> : <BsSunFill />}
+          </button>
+        </div>
 
         {/* Header Sidebar Links Open / Close Button */}
         <button
           onClick={handleMobileNavOpen}
-          className="xl:hidden flex items-center justify-center p-4 bg-primary text-white rounded-md transition-all duration-300"
+          className={`${theme === "light" ? "bg-primary" : "bg-altPrimary"} xl:hidden flex items-center justify-center p-4 text-white rounded-md transition-all duration-300`}
         >
           {isMobileNavOpen ? <IoClose /> : <HiMenu />}
         </button>

@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import { FaPaperPlane } from "react-icons/fa";
 import { SectionTitle, SectionSubtitle, SectionDescription } from "../components";
 import { contactCardList, emailjsConfiguration } from "../constants/data";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Contact() {
+  const { theme } = useContext(ThemeContext);
   const formRef = useRef(null);
 
   const { serviceID, templateID, publicKey } = emailjsConfiguration;
@@ -24,7 +26,7 @@ export default function Contact() {
 
   return (
     <section
-      className="p-sectionPadding"
+      className="p-sectionPadding pb-28"
       id="contact"
     >
       {/* Contact Section Title */}
@@ -46,13 +48,15 @@ export default function Contact() {
               <Link
                 href={href}
                 key={index}
+                className={`${
+                  theme === "light" ? "bg-white border-primary text-black" : "bg-altSecondary border-altPrimary text-white"
+                } shadow-cardShadow p-5 rounded-md flex flex-col gap-y-3 items-center border-b-[2px] transition-all duration-300 hover:shadow-xl`}
                 target="_blank"
-                className="bg-white shadow-cardShadow p-5 rounded-md flex flex-col gap-y-3 items-center border-b-[2px] border-primary transition-all duration-300 hover:shadow-xl"
               >
-                <ContactIcon className="text-[22px] text-primary" />
+                <ContactIcon className={`${theme === "light" ? "text-primary" : "text-altPrimary"} text-[22px]`} />
                 <h4 className="font-semibold">{title}</h4>
-                <span className="text-light font-medium lg:text-[14px] text-[12px]">{contact}</span>
-                <span className="text-primary font-normal text-[14px]">Send Me A Message</span>
+                <span className={`${theme === "light" ? "text-light" : "text-altLight"} font-medium lg:text-[14px] text-[12px]`}>{contact}</span>
+                <span className={`${theme === "light" ? "text-primary" : "text-altPrimary"} font-normal text-[14px]`}>Send Me A Message</span>
               </Link>
             ))}
           </div>
@@ -77,7 +81,9 @@ export default function Contact() {
                 type="text"
                 name="name"
                 placeholder="Your Name"
-                className="p-6 w-full rounded-lg bg-primary/10 border-[2px] border-primary text-black placeholder:text-primary placeholder:font-medium focus:bg-white focus:outline-none"
+                className={`${
+                  theme === "light" ? "text-black border-primary placeholder:text-primary focus:bg-white" : "text-white border-altPrimary placeholder:text-altPrimary focus:bg-altSecondary"
+                } p-6 w-full rounded-lg bg-primary/10 border-[2px] placeholder:font-medium focus:outline-none`}
               />
             </div>
             <div className="flex items-center justify-between">
@@ -85,25 +91,33 @@ export default function Contact() {
                 type="email"
                 name="email"
                 placeholder="Your Email"
-                className="p-6 w-[48%] rounded-lg bg-primary/10 border-[2px] border-primary text-black placeholder:text-primary placeholder:font-medium focus:bg-white focus:outline-none"
+                className={`${
+                  theme === "light" ? "text-black border-primary placeholder:text-primary focus:bg-white" : "text-white border-altPrimary placeholder:text-altPrimary focus:bg-altSecondary"
+                } p-6 w-[48%] rounded-lg bg-primary/10 border-[2px] placeholder:font-medium focus:outline-none`}
               />
               <input
                 type="text"
                 name="subject"
                 placeholder="Your Subject"
-                className="p-6 w-[48%] rounded-lg bg-primary/10 border-[2px] border-primary text-black placeholder:text-primary placeholder:font-medium focus:bg-white focus:outline-none"
+                className={`${
+                  theme === "light" ? "text-black border-primary placeholder:text-primary focus:bg-white" : "text-white border-altPrimary placeholder:text-altPrimary focus:bg-altSecondary"
+                } p-6 w-[48%] rounded-lg bg-primary/10 border-[2px] placeholder:font-medium focus:outline-none`}
               />
             </div>
             <div className="">
               <textarea
                 name="message"
                 placeholder="Your Message"
-                className="p-6 w-full h-[16.5rem] resize-none rounded-lg bg-primary/10 border-[2px] border-primary text-black placeholder:text-primary placeholder:font-medium focus:bg-white focus:outline-none"
+                className={`${
+                  theme === "light" ? "border-primary text-black placeholder:text-primary focus:bg-white" : "border-altPrimary text-white placeholder:text-altPrimary focus:bg-altSecondary"
+                } p-6 w-full h-[16.5rem] resize-none rounded-lg bg-primary/10 border-[2px] placeholder:font-medium focus:outline-none`}
               />
             </div>
             <button
               type="submit"
-              className=" w-fit flex items-center gap-x-3 px-6 py-3 shadow-lg bg-primary rounded-md border-[1.5px] border-transparent text-white font-medium transition-all duration-300 hover:border-primary hover:bg-transparent hover:text-primary"
+              className={`${
+                theme === "light" ? "bg-primary hover:border-primary hover:text-primary" : "bg-altPrimary hover:border-altPrimary hover:text-altPrimary"
+              } w-fit flex items-center gap-x-3 px-6 py-3 shadow-lg bg-primary rounded-md border-[1.5px] border-transparent text-white font-medium transition-all duration-300 hover:bg-transparent`}
             >
               Send Message <FaPaperPlane />
             </button>

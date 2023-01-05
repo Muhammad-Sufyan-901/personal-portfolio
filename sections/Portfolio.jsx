@@ -1,14 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { SectionTitle, SectionSubtitle, SectionDescription, Button, Modal } from "../components";
 import { portfolioList } from "../constants/data";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Portfolio() {
   const [openModal, setOpenModal] = useState({
     isOpen: false,
     selectedModal: null,
   });
+  const { theme } = useContext(ThemeContext);
 
   const handleOpenModal = (index) => setOpenModal({ isOpen: true, selectedModal: index });
 
@@ -62,18 +64,20 @@ export default function Portfolio() {
           {portfolioList.map(({ title, subtitle, img, description }, index) => (
             <div
               key={index}
-              className="p-5 bg-white shadow-cardShadow flex flex-col gap-y-4 rounded-lg border-[1.5px] transition-all duration-300 hover:border-primary"
+              className={`${
+                theme === "light" ? "bg-white hover:border-primary text-black" : "bg-altSecondary hover:border-altPrimary text-white border-transparent"
+              } p-5 shadow-cardShadow flex flex-col gap-y-4 rounded-lg border-[1.5px] transition-all duration-300 group`}
             >
-              <div className="overflow-hidden rounded-xl h-[250px] border-[3px]">
+              <div className={`${theme === "light" ? "" : "border-altLight"} overflow-hidden rounded-xl h-[250px] border-[3px]`}>
                 <img
                   src={img}
                   alt="Portfolio Banner"
-                  className="h-full w-full object-cover rounded-[9px]"
+                  className="h-full w-full object-cover rounded-[9px] transition-all duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="flex flex-col gap-y-2">
                 <h3 className="font-semibold xl:text-[1.2em] lg:text-[1.1em] text-[1em]">{title}</h3>
-                <h4 className="font-medium text-light xl:text-[1em] text-[0.85em]">{subtitle}</h4>
+                <h4 className={`${theme === "light" ? "text-light" : "text-altLight"} font-medium xl:text-[1em] text-[0.85em]`}>{subtitle}</h4>
                 <p className="font-normal text-[0.9em]">{truncateString(description)}</p>
               </div>
               <div className="flex items-center gap-x-5 xl:max-w-[85%] w-full mt-4">

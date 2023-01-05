@@ -1,11 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function SectionSubtitle({ children, className = "", ...props }) {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <h3
-      className={`${className} lg:text-[2em] text-[1.6em] lg:text-start text-center font-bold text-primary mb-2`}
+      className={`${theme === "light" ? "text-primary" : "text-altPrimary"} ${className} lg:text-[2em] text-[1.6em] lg:text-start text-center font-bold mb-2`}
       {...props}
     >
       {children}

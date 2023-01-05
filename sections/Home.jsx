@@ -2,12 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import { BsArrowDownCircle, BsFillChatFill } from "react-icons/bs";
 import { Button } from "../components";
 import { identity } from "../constants/data";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Home() {
+  const { theme } = useContext(ThemeContext);
+
   const { name, division, description, picture } = identity;
 
   return (
@@ -19,10 +22,10 @@ export default function Home() {
       <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto grid lg:grid-cols-2 grid-cols-1 pt-16">
         {/* Home Text Info */}
         <div className="py-16 flex flex-col lg:items-start items-center lg:text-start text-center">
-          <span className="font-semibold text-[#777777] text-base">Hello I'am</span>
-          <h1 className="font-semibold lg:text-[4rem] md:text-[2.8rem] text-[2.5rem] leading-[120%] text-primary mt-1 mb-4">{name}</h1>
-          <h3 className="font-bold text-black text-[22px] mb-6">{division}</h3>
-          <p className="font-medium text-[#777777] text-[16px] max-w-[350px] mb-8">{description[0]}</p>
+          <span className={`${theme === "light" ? "text-[#777777]" : "text-[#a9afc3]"} font-semibold text-base`}>Hello I'am</span>
+          <h1 className={`${theme === "light" ? "text-primary" : "text-altPrimary"} font-semibold lg:text-[4rem] md:text-[2.8rem] text-[2.5rem] leading-[120%] mt-1 mb-4`}>{name}</h1>
+          <h3 className={`${theme === "light" ? "text-black" : "text-white"} font-bold text-[22px] mb-6`}>{division}</h3>
+          <p className={`${theme === "light" ? "text-[#777777]" : "text-[#a9afc3]"} font-medium text-[16px] max-w-[350px] mb-8`}>{description[0]}</p>
           <Button
             href={"/#contact"}
             type="primary"
@@ -51,10 +54,10 @@ export default function Home() {
       <Link
         href={"/#about"}
         scroll={false}
-        className="inline-flex justify-center items-center gap-x-2 text-black text-center w-full mt-16 font-medium text-[18px] animate-bounce"
+        className={`${theme === "light" ? "text-black" : "text-white"} inline-flex justify-center items-center gap-x-2 text-center w-full mt-16 font-medium text-[18px] animate-bounce`}
       >
         Scroll Down
-        <BsArrowDownCircle className="text-primary text-[24px]" />
+        <BsArrowDownCircle className={`${theme === "light" ? "text-primary" : "text-altPrimary"} text-[24px]`} />
       </Link>
     </section>
   );

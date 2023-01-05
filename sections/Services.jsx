@@ -1,11 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { BiCheck } from "react-icons/bi";
 import { SectionTitle, SectionSubtitle, SectionDescription } from "../components";
 import { servicesList } from "../constants/data";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Services() {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <section
       className="p-sectionPadding"
@@ -25,17 +28,19 @@ export default function Services() {
           {servicesList.map(({ title, ServicesIcon, description, services }, index) => (
             <div
               key={index}
-              className={`w-full xl:h-fit h-auto bg-white rounded-b-[2rem] border-[1.5px] border-transparent transition-all duration-300 cursor-pointer shadow-cardShadow hover:shadow-2xl hover:border-primary`}
+              className={`${
+                theme === "light" ? "bg-white text-black hover:border-primary" : "bg-altSecondary text-white hover:border-altPrimary"
+              } w-full xl:h-fit h-auto rounded-b-[2rem] border-[1.5px] border-transparent transition-all duration-300 cursor-pointer shadow-cardShadow hover:shadow-2xl`}
             >
-              <div className="p-8 bg-primary text-white rounded-b-[2rem]">
+              <div className={`${theme === "light" ? "bg-primary" : "bg-altPrimary"} p-8 text-white rounded-b-[2rem]`}>
                 <h3 className="lg:text-xl text-lg text-center font-semibold flex items-center gap-x-3 justify-center">
                   <ServicesIcon /> {title}
                 </h3>
               </div>
               <div className="p-8 flex flex-col gap-y-4">
-                <h4 className="text-primary font-semibold text-[1.2em]">What is {title}?</h4>
+                <h4 className={`${theme === "light" ? "text-primary" : "text-altPrimary"} font-semibold text-[1.2em]`}>What is {title}?</h4>
                 <p className="font-normal">{description}</p>
-                <h4 className="text-primary font-semibold text-[1.2em]">What i'm provide</h4>
+                <h4 className={`${theme === "light" ? "text-primary" : "text-altPrimary"} font-semibold text-[1.2em]`}>What i'm provide</h4>
                 <ul className="flex flex-col gap-y-2">
                   {services.map((service, index) => (
                     <li

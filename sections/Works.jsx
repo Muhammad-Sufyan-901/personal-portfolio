@@ -1,10 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { SectionSubtitle, SectionDescription, SectionTitle } from "../components";
 import { exprienceList } from "../constants/data";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Works() {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <section
       className="p-sectionPadding"
@@ -21,15 +24,15 @@ export default function Works() {
           {exprienceList.map(({ years, work, time, company, description }, index) => (
             <div
               key={index}
-              className="p-[35px] shadow-cardShadow rounded-md border-b-[3px] border-primary bg-white transition-all duration-300 hover:scale-105"
+              className={`${theme === "light" ? "bg-white border-primary text-black" : "bg-altSecondary border-altPrimary text-white"} p-[35px] shadow-cardShadow rounded-md border-b-[3px] transition-all duration-300 hover:scale-105`}
             >
-              <div className="flex flex-col leading-[30px] border-b-2 border-light/50 pb-3">
+              <div className={`${theme === "light" ? "border-light/50" : "border-altLight/50"} flex flex-col leading-[30px] border-b-2 pb-3`}>
                 <h4 className="font-bold text-[1.3em]">{work}</h4>
                 <h5 className="font-medium text-[0.9em] italic">{time}</h5>
-                <span className="font-normal text-[0.9em] text-light">{years}</span>
+                <span className={`${theme === "light" ? "text-light" : "text-altLight"} font-normal text-[0.9em]`}>{years}</span>
               </div>
               <div className="flex flex-col gap-y-4 mt-4">
-                <h4 className="py-[5px] px-[15px] bg-primary text-white w-max text-[1em] font-normal rounded-[5px]">{company}</h4>
+                <h4 className={`${theme === "light" ? "bg-primary" : "bg-altPrimary"} py-[5px] px-[15px] text-white w-max text-[1em] font-normal rounded-[5px]`}>{company}</h4>
                 <p className="font-normal text-[1em]">{description}</p>
               </div>
             </div>
