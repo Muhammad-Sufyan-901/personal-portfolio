@@ -47,7 +47,7 @@ export default function Services() {
                       key={index}
                       className="flex items-center gap-x-1 text-[0.9em] font-medium"
                     >
-                      <BiCheck className="text-primary text-[18px]" /> {service}
+                      <BiCheck className={`${theme === "light" ? "text-primary" : "text-altPrimary"} text-[18px]`} /> {service}
                     </li>
                   ))}
                 </ul>
