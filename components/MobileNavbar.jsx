@@ -16,7 +16,7 @@ export default function MobileNavbar({ handleMobileNavClose, isMobileNavOpen }) 
       <div
         className={`${isMobileNavOpen ? "animate-fromTopAnimation" : "animate-toTopAnimation"} ${
           theme === "light" ? "bg-white" : "bg-altSecondary"
-        } relative w-[80%] mx-auto rounded-lg shadow-lg max-w-[600px] h-[500px] p-10 flex flex-col gap-y-10 justify-center items-center m-5 transition-all duration-300`}
+        } relative w-[80%] mx-auto rounded-lg shadow-lg max-w-[600px] h-[575px] p-10 flex flex-col gap-y-10 justify-center items-center m-5 transition-all duration-300`}
       >
         {/* Mobile Nav Close Buttons */}
         <IoClose

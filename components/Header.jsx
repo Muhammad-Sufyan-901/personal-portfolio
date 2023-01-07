@@ -72,7 +72,7 @@ export default function Header() {
         </div>
 
         {/* Theme Toggle Button */}
-        <div className="w-[10rem] lg:flex hidden items-center justify-center">
+        <div className="xl:flex hidden items-center justify-center">
           <button
             onClick={toggleTheme}
             className={`${theme === "light" ? "text-black" : "text-white"} bg-glassmorph p-5 flex items-center justify-center rounded-full shadow-lg outline-none`}

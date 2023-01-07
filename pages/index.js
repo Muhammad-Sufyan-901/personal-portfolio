@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
-import { Home, About, Experiences, Works, Services, Portfolio, GetInTouch, Contact } from "../sections";
+import { Home, About, Experiences, Works, Services, Portfolio, GetInTouch, Article, Contact } from "../sections";
 
 export default function MainPage() {
   const { theme } = useContext(ThemeContext);
@@ -15,6 +15,7 @@ export default function MainPage() {
         <Services />
         <Portfolio />
         <GetInTouch />
+        <Article />
         <Contact />
       </main>
     </React.Fragment>
