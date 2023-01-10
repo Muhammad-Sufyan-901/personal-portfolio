@@ -5,11 +5,11 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 
 export const identity = {
   name: "Muhammad Sufyan",
-  division: "Frontend Developer",
+  division: ["Frontend Developer", "Software Tester"],
   region: "Indonesia",
   description: [
     "I create stunning website for your business, Intermediate experienced in web design and development.",
-    "Hello everyone! I am Muhammad Sufyan, an frontend application and website developer. I am a intermediate experienced and I hope with this I can always learning something new to be able to invent digital applications that can help humans in the future. Can work alone or in a team.",
+    "Hello everyone! I am Muhammad Sufyan, a frontend application and website developer. I am a intermediate experienced and I hope with this I can always learning something new to be able to invent digital applications that can help humans in the future. Can work alone or in a team.",
   ],
   picture: ["/image/profil.png", "/image/about.jpeg"],
   CV: "/pdf/CV 2.pdf",
