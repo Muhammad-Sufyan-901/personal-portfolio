@@ -30,7 +30,7 @@ export default function Services() {
               key={index}
               className={`${
                 theme === "light" ? "bg-white text-black hover:border-primary" : "bg-altSecondary text-white hover:border-altPrimary"
-              } w-full xl:h-fit h-auto rounded-b-[2rem] border-[1.5px] border-transparent transition-all duration-300 cursor-pointer shadow-cardShadow hover:shadow-2xl`}
+              } w-full xl:h-fit h-auto rounded-b-[2rem] border-[1.5px] border-transparent transition-all duration-300 shadow-cardShadow hover:shadow-2xl`}
             >
               <div className={`${theme === "light" ? "bg-primary" : "bg-altPrimary"} p-8 text-white rounded-b-[2rem]`}>
                 <h3 className="lg:text-xl text-lg text-center font-semibold flex items-center gap-x-3 justify-center">

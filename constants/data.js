@@ -358,9 +358,3 @@ export const contactCardList = [
     href: "https://web.whatsapp.com/",
   },
 ];
-
-export const emailjsConfiguration = {
-  serviceID: "service_b3dgvx3",
-  templateID: "template_hhlw0s9",
-  publicKey: "i6ezC38-27ueEY_c4",
-};

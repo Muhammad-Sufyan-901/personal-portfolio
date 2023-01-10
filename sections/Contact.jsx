@@ -1,26 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import { FaPaperPlane } from "react-icons/fa";
 import { SectionTitle, SectionSubtitle, SectionDescription } from "../components";
-import { contactCardList, emailjsConfiguration } from "../constants/data";
+import { contactCardList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
 
 export default function Contact() {
+  const [nameInput, setNameInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [subjectInput, setSubjectInput] = useState("");
+  const [messageInput, setMessageInput] = useState("");
   const { theme } = useContext(ThemeContext);
   const formRef = useRef(null);
-
-  const { serviceID, templateID, publicKey } = emailjsConfiguration;
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    const clearFormAfterSubmit = () => {
+      setNameInput("");
+      setEmailInput("");
+      setSubjectInput("");
+      setMessageInput("");
+    };
+
     emailjs
-      .sendForm(serviceID, templateID, formRef.current, publicKey)
-      .then(() => Swal.fire({ icon: "success", title: "Your Message Is Successfully Sended!", timer: 2500 }))
+      .sendForm(process.env.NEXT_PUBLIC_SERVICE_ID, process.env.NEXT_PUBLIC_TEMPLATE_ID, formRef.current, process.env.NEXT_PUBLIC_PUBLIC_KEY)
+      .then(() => {
+        Swal.fire({ icon: "success", title: "Your Message Is Successfully Sended!", timer: 2500 });
+
+        clearFormAfterSubmit();
+      })
       .catch(() => Swal.fire({ icon: "error", title: "Oops...", text: "Something went wrong!", timer: 2500 }));
   };
 
@@ -78,39 +91,50 @@ export default function Contact() {
           >
             <div className="w-full">
               <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
+                value={nameInput}
+                onChange={({ target: { value } }) => setNameInput(value)}
                 className={`${
                   theme === "light" ? "text-black border-primary placeholder:text-primary focus:bg-white" : "text-white border-altPrimary placeholder:text-altPrimary focus:bg-altSecondary"
                 } p-6 w-full rounded-lg bg-primary/10 border-[2px] placeholder:font-medium focus:outline-none`}
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
               />
             </div>
             <div className="flex items-center justify-between">
               <input
+                value={emailInput}
+                onChange={({ target: { value } }) => setEmailInput(value)}
+                className={`${
+                  theme === "light" ? "text-black border-primary placeholder:text-primary focus:bg-white" : "text-white border-altPrimary placeholder:text-altPrimary focus:bg-altSecondary"
+                } p-6 w-[48%] rounded-lg bg-primary/10 border-[2px] placeholder:font-medium focus:outline-none`}
                 type="email"
                 name="email"
                 placeholder="Your Email"
+                required
+              />
+              <input
+                value={subjectInput}
+                onChange={({ target: { value } }) => setSubjectInput(value)}
                 className={`${
                   theme === "light" ? "text-black border-primary placeholder:text-primary focus:bg-white" : "text-white border-altPrimary placeholder:text-altPrimary focus:bg-altSecondary"
                 } p-6 w-[48%] rounded-lg bg-primary/10 border-[2px] placeholder:font-medium focus:outline-none`}
-              />
-              <input
                 type="text"
                 name="subject"
                 placeholder="Your Subject"
-                className={`${
-                  theme === "light" ? "text-black border-primary placeholder:text-primary focus:bg-white" : "text-white border-altPrimary placeholder:text-altPrimary focus:bg-altSecondary"
-                } p-6 w-[48%] rounded-lg bg-primary/10 border-[2px] placeholder:font-medium focus:outline-none`}
               />
             </div>
-            <div className="">
+            <div>
               <textarea
-                name="message"
-                placeholder="Your Message"
+                value={messageInput}
+                onChange={({ target: { value } }) => setMessageInput(value)}
                 className={`${
                   theme === "light" ? "border-primary text-black placeholder:text-primary focus:bg-white" : "border-altPrimary text-white placeholder:text-altPrimary focus:bg-altSecondary"
                 } p-6 w-full h-[16.5rem] resize-none rounded-lg bg-primary/10 border-[2px] placeholder:font-medium focus:outline-none`}
+                name="message"
+                placeholder="Your Message"
+                required
               />
             </div>
             <button
