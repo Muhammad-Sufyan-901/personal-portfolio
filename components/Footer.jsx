@@ -15,7 +15,7 @@ export default function Footer() {
       {/* Footer Logo Name */}
       <div className="flex flex-col gap-y-4">
         <h3 className="text-white font-semibold text-[2rem] tracking-wide">{name}</h3>
-        <h4 className="text-white font-medium text-[1.4rem]">{division}</h4>
+        <h4 className="text-white font-medium text-[1.4rem]">{division[0]}</h4>
       </div>
 
       {/* Footer Link List */}
