@@ -5,8 +5,9 @@ import { BiCheck } from "react-icons/bi";
 import { SectionTitle, SectionSubtitle, SectionDescription } from "../components";
 import { servicesList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
+import { SectionWrapper } from "../wrapper";
 
-export default function Services() {
+function Services() {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -59,3 +60,5 @@ export default function Services() {
     </section>
   );
 }
+
+export default SectionWrapper(Services, "services");

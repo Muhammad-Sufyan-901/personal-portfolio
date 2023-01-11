@@ -8,8 +8,9 @@ import { BsArrowDownCircle, BsFillChatFill } from "react-icons/bs";
 import { Button } from "../components";
 import { identity } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
+import { SectionWrapper } from "../wrapper";
 
-export default function Home() {
+function Home() {
   const { theme } = useContext(ThemeContext);
 
   const { name, division, description, picture } = identity;
@@ -47,8 +48,9 @@ export default function Home() {
             alt={"Personal Profile"}
             width={550}
             height={550}
+            blurDataURL={picture[0]}
             className="object-cover"
-            priority
+            placeholder="blur"
           />
         </div>
       </div>
@@ -65,3 +67,5 @@ export default function Home() {
     </section>
   );
 }
+
+export default SectionWrapper(Home, "home");

@@ -4,8 +4,9 @@ import React, { useContext, useState } from "react";
 import { SectionTitle, SectionSubtitle, SectionDescription, Button, Modal } from "../components";
 import { portfolioList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
+import { SectionWrapper } from "../wrapper";
 
-export default function Portfolio() {
+function Portfolio() {
   const [openModal, setOpenModal] = useState({
     isOpen: false,
     selectedModal: null,
@@ -122,3 +123,5 @@ export default function Portfolio() {
     </section>
   );
 }
+
+export default SectionWrapper(Portfolio, "portfolio");

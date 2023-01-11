@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useContext } from "react";
-import Typewriter from "typewriter-effect";
 import { BsDownload } from "react-icons/bs";
 import { Button, SectionTitle } from "../components";
 import { identity, aboutExperiencesList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
+import { SectionWrapper } from "../wrapper";
 
-export default function About() {
+function About() {
   const { theme } = useContext(ThemeContext);
 
   const { name, division, region, description, picture, CV } = identity;
@@ -40,12 +40,8 @@ export default function About() {
             <h2 className="lg:text-[2rem] text-[1.75rem] font-semibold mb-3">
               Hello i'am <span className={theme === "light" ? "text-primary" : "text-altPrimary"}>{name}</span>
             </h2>
-            <h4 className="lg:text-2xl text-xl font-semibold mb-8 flex gap-x-1">
-              A{" "}
-              <span className={theme === "light" ? "text-primary" : "text-altPrimary"}>
-                <Typewriter options={{ strings: division, autoStart: true, loop: true }} />
-              </span>{" "}
-              based in <span className={theme === "light" ? "text-primary" : "text-altPrimary"}>{region}</span>
+            <h4 className="lg:text-2xl text-xl font-semibold mb-8">
+              A <span className={theme === "light" ? "text-primary" : "text-altPrimary"}>{division[0]}</span> based in <span className={theme === "light" ? "text-primary" : "text-altPrimary"}>{region}</span>
             </h4>
             <p className={`${theme === "light" ? "text-[#777777]" : "text-altLight"} max-w-[85%] w-full text-base md:text-lg pb-6 font-normal lg:mx-0 mx-auto`}>{description[1]}</p>
           </div>
@@ -78,3 +74,5 @@ export default function About() {
     </section>
   );
 }
+
+export default SectionWrapper(About, "about");

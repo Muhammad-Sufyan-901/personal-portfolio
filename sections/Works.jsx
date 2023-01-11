@@ -4,8 +4,9 @@ import React, { useContext } from "react";
 import { SectionSubtitle, SectionDescription, SectionTitle } from "../components";
 import { exprienceList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
+import { SectionWrapper } from "../wrapper";
 
-export default function Works() {
+function Works() {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -42,3 +43,5 @@ export default function Works() {
     </section>
   );
 }
+
+export default SectionWrapper(Works, "works");

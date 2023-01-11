@@ -5,7 +5,7 @@ import { FaPaperPlane } from "react-icons/fa";
 import { Button } from "../components";
 import { ThemeContext } from "../context/ThemeContext";
 
-export default function GetInTouch() {
+function GetInTouch() {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -39,3 +39,5 @@ export default function GetInTouch() {
     </div>
   );
 }
+
+export default GetInTouch;

@@ -6,8 +6,9 @@ import { MdOutlineSchool } from "react-icons/md";
 import { SectionTitle, SectionSubtitle } from "../components";
 import { educationList, skillsList, awardList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
+import { SectionWrapper } from "../wrapper";
 
-export default function Experiences() {
+function Experiences() {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -110,3 +111,5 @@ export default function Experiences() {
     </section>
   );
 }
+
+export default SectionWrapper(Experiences, "experiences");

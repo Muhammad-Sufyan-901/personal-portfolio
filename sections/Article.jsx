@@ -3,8 +3,9 @@ import { BiTime, BiComment } from "react-icons/bi";
 import { SectionTitle, SectionSubtitle, SectionDescription, Button } from "../components";
 import { articleList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
+import { SectionWrapper } from "../wrapper";
 
-export default function Article() {
+function Article() {
   const { theme } = useContext(ThemeContext);
 
   const truncateString = (string) => {
@@ -82,3 +83,5 @@ export default function Article() {
     </section>
   );
 }
+
+export default SectionWrapper(Article, "article");

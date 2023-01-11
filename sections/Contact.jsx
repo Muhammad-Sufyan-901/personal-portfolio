@@ -8,8 +8,9 @@ import { FaPaperPlane } from "react-icons/fa";
 import { SectionTitle, SectionSubtitle, SectionDescription } from "../components";
 import { contactCardList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
+import { SectionWrapper } from "../wrapper";
 
-export default function Contact() {
+function Contact() {
   const [nameInput, setNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [subjectInput, setSubjectInput] = useState("");
@@ -151,3 +152,5 @@ export default function Contact() {
     </section>
   );
 }
+
+export default SectionWrapper(Contact, "contact");

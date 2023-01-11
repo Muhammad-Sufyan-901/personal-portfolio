@@ -8,4 +8,5 @@ import GetInTouch from "./GetInTouch";
 import Article from "./Article";
 import Contact from "./Contact";
 
-export { Home, About, Experiences, Works, Services, Portfolio, GetInTouch, Article, Contact };
+export { About, Experiences, Works, Services, Portfolio, GetInTouch, Article, Contact };
+export { default as Home } from "./Home";
