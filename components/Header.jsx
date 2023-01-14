@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import React, { useContext, useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
 import { HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import { linkList, identity } from "../constants/data";
 import { MobileNavbar } from "./index";
 import { ThemeContext } from "../context/ThemeContext";
+import { fadeIn, staggerContainer } from "../utils/motion";
 
 export default function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -26,13 +28,17 @@ export default function Header() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      variants={staggerContainer}
       className={`${
         isScrolled && theme === "light" ? "shadow-lg lg:bg-glassmorph bg-white" : isScrolled && theme === "dark" ? "shadow-lg lg:bg-glassmorph bg-[#0e1b31]" : "shadow-none bg-transparent"
       } z-[100] fixed top-0 left-0 w-screen transition-all duration-300 lg:backdrop-blur-[20px]`}
+      whileInView="show"
+      initial="hidden"
     >
       {/* Header Container */}
-      <div
+      <motion.div
+        variants={fadeIn("down", "tween", 0.3, 0.75)}
         className={`${
           isScrolled ? "md:h-[calc(4rem_+_1rem)] h-[calc(3rem_+_1rem)]" : "md:h-[calc(5rem_+_1rem)] h-[calc(4rem_+_1rem)]"
         } xl:container max-w-[62.5rem] w-full mx-auto lg:px-0 px-4 relative flex items-center justify-between py-5 transition-all duration-300`}
@@ -96,7 +102,7 @@ export default function Header() {
             isMobileNavOpen={isMobileNavOpen}
           />
         )}
-      </div>
-    </header>
+      </motion.div>
+    </motion.header>
   );
 }

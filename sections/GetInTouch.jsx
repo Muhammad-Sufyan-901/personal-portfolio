@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
 import { Button } from "../components";
 import { ThemeContext } from "../context/ThemeContext";
+import { slideIn, staggerContainer } from "../utils/motion";
 
 function GetInTouch() {
   const { theme } = useContext(ThemeContext);
@@ -11,9 +13,16 @@ function GetInTouch() {
   return (
     <div className="max-w-[1150px] w-full mx-auto relative px-8 pt-24 pb-8">
       {/* Get In Touch Container */}
-      <div className="flex justify-center items-center w-full">
+      <motion.div
+        variants={staggerContainer}
+        viewport={{ once: false, amount: 0.25 }}
+        whileInView="show"
+        initial="hidden"
+        className="flex justify-center items-center w-full"
+      >
         {/* Get In Touch Box */}
-        <div
+        <motion.div
+          variants={slideIn("right", "tween", 0, 0.75)}
           className={`${
             theme === "light" ? "bg-white border-primary text-black" : "bg-altSecondary border-altPrimary text-white"
           } flex justify-center lg:flex-row flex-col items-center gap-x-[50px] relative w-[90%] shadow-cardShadow p-[50px] rounded-[10px] border-b-[3px] transition-all duration-300`}
@@ -34,8 +43,8 @@ function GetInTouch() {
           >
             Get In Touch <FaPaperPlane />
           </Button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

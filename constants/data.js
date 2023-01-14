@@ -314,12 +314,11 @@ export const allPortfolioList = [
 
 export const articleList = [
   {
-    title: "What Is HTML? - Basic Explanation",
-    img: "/image/article-1.jpg",
-    uploadedAt: "29 December 2022",
-    tags: ["Explanation"],
-    description:
-      "HTML stands for HyperText Markup Language. It is a standard markup language for web page creation. It allows the creation and structure of sections, paragraphs, and links using HTML elements (the building blocks of a web page) such as tags and attributes.",
+    title: "List of JavaScript Array Methods",
+    img: "/image/article-3.jpg",
+    uploadedAt: "02 January 2022",
+    tags: ["Tips & Trick"],
+    description: "In JavaScript, an array is a data structure that contains list of elements which store multiple values in a single variable. The strength of JavaScript arrays lies in the array methods.",
   },
   {
     title: "CSS Cheat Sheet - A Basic Guide to CSS",
@@ -330,11 +329,12 @@ export const articleList = [
       "CSS i.e. Cascading Style Sheets is a stylesheet language used to describe the presentation of a document written in a markup language such as HTML, XML, etc. CSS enhances the look and feel of the webpage by describing how elements should be rendered on screen or in other media.",
   },
   {
-    title: "List of JavaScript Array Methods",
-    img: "/image/article-3.jpg",
-    uploadedAt: "02 January 2022",
-    tags: ["Tips & Trick"],
-    description: "In JavaScript, an array is a data structure that contains list of elements which store multiple values in a single variable. The strength of JavaScript arrays lies in the array methods.",
+    title: "What Is HTML? - Basic Explanation",
+    img: "/image/article-1.jpg",
+    uploadedAt: "29 December 2022",
+    tags: ["Explanation"],
+    description:
+      "HTML stands for HyperText Markup Language. It is a standard markup language for web page creation. It allows the creation and structure of sections, paragraphs, and links using HTML elements (the building blocks of a web page) such as tags and attributes.",
   },
 ];
 

@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useContext, useState } from "react";
+import { motion } from "framer-motion";
 import { SectionTitle, SectionSubtitle, SectionDescription, Button, Modal } from "../components";
 import { portfolioList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
 import { SectionWrapper } from "../wrapper";
+import { fadeIn, staggerContainer } from "../utils/motion";
 
 function Portfolio() {
   const [openModal, setOpenModal] = useState({
@@ -55,15 +57,25 @@ function Portfolio() {
       <SectionTitle>Portfolio</SectionTitle>
 
       {/* Portfolio Section Container */}
-      <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto">
+      <motion.div
+        variants={staggerContainer}
+        viewport={{ once: false }}
+        whileInView="show"
+        initial="hidden"
+        className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto"
+      >
         {/* Portfolio Section Subtitle & Description */}
         <SectionSubtitle>Project i'm created</SectionSubtitle>
         <SectionDescription>I'm created a few project while i'm learing about frontend development. and the project i'll explain below</SectionDescription>
 
         {/* Portfolio Section Content */}
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:w-full w-[80%] lg:mx-0 mx-auto gap-10 mt-16">
+        <motion.div
+          variants={fadeIn("right", "tween", 0, 1)}
+          className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:w-full w-[80%] lg:mx-0 mx-auto gap-10 mt-16"
+        >
           {portfolioList.map(({ title, subtitle, img, description }, index) => (
-            <div
+            <motion.div
+              variants={fadeIn("up", "tween", index * 0.1, 1)}
               key={index}
               className={`${
                 theme === "light" ? "bg-white hover:border-primary text-black" : "bg-altSecondary hover:border-altPrimary text-white border-transparent"
@@ -100,15 +112,18 @@ function Portfolio() {
                   Live Preview
                 </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Portfolio Modal Render */}
         <React.Fragment>{handleRenderModal()}</React.Fragment>
 
         {/* View All Portfolio Button */}
-        <div className="flex justify-center items-center w-full mt-10">
+        <motion.div
+          variants={fadeIn("up", "tween", 1.25, 0.5)}
+          className="flex justify-center items-center w-full mt-10"
+        >
           <Button
             href={"/portfolio"}
             scroll={true}
@@ -118,8 +133,8 @@ function Portfolio() {
           >
             View All Projects
           </Button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

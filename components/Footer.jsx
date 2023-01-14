@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
 import { identity, linkList, socialMediaList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
+import { fadeIn, staggerContainer, textVariants } from "../utils/motion";
 
 export default function Footer() {
   const { theme } = useContext(ThemeContext);
@@ -11,11 +13,27 @@ export default function Footer() {
   const { name, division } = identity;
 
   return (
-    <footer className={`${theme === "light" ? "bg-primary" : "bg-altPrimary"} py-16 w-full text-white text-center flex flex-col items-center gap-y-16 transition-all duration-300`}>
+    <motion.footer
+      variants={staggerContainer}
+      viewport={{ once: false }}
+      whileInView="show"
+      initial="hidden"
+      className={`${theme === "light" ? "bg-primary" : "bg-altPrimary"} py-16 w-full text-white text-center flex flex-col items-center gap-y-16 transition-all duration-300`}
+    >
       {/* Footer Logo Name */}
       <div className="flex flex-col gap-y-4">
-        <h3 className="text-white font-semibold text-[2rem] tracking-wide">{name}</h3>
-        <h4 className="text-white font-medium text-[1.4rem]">{division[0]}</h4>
+        <motion.h3
+          variants={textVariants(1)}
+          className="text-white font-semibold text-[2rem] tracking-wide"
+        >
+          {name}
+        </motion.h3>
+        <motion.h4
+          variants={textVariants(1.1)}
+          className="text-white font-medium text-[1.4rem]"
+        >
+          {division[0]}
+        </motion.h4>
       </div>
 
       {/* Footer Link List */}
@@ -27,7 +45,7 @@ export default function Footer() {
             scroll={false}
             className={`${theme === "light" ? "hover:text-light" : "hover:text-altLight"} font-normal transition-all`}
           >
-            {title}
+            <motion.div variants={fadeIn("up", "tween", index * 0.1, 1.2)}>{title}</motion.div>
           </Link>
         ))}
       </div>
@@ -38,15 +56,24 @@ export default function Footer() {
           <Link
             href={href}
             key={index}
-            className={`${theme === "light" ? "text-primary" : "text-altPrimary"} p-3 bg-white rounded-xl flex shadow-sm border border-transparent transition-all duration-300 hover:border-white hover:bg-transparent hover:text-white`}
           >
-            <SocialMediaIcon />
+            <motion.div
+              variants={fadeIn("up", "tween", index * 0.1, 1.2)}
+              className={`${theme === "light" ? "text-primary" : "text-altPrimary"} p-3 bg-white rounded-xl flex shadow-sm border border-transparent transition-all duration-300 hover:border-white hover:bg-transparent hover:text-white`}
+            >
+              <SocialMediaIcon />
+            </motion.div>
           </Link>
         ))}
       </div>
 
       {/* Footer Copyright */}
-      <span className="text-white font-normal text-[13px]">© 2022 Created by Muhammad Sufyan. All right reserved</span>
-    </footer>
+      <motion.span
+        variants={textVariants(1.3)}
+        className="text-white font-normal text-[13px]"
+      >
+        © 2022 Created by Muhammad Sufyan. All right reserved
+      </motion.span>
+    </motion.footer>
   );
 }

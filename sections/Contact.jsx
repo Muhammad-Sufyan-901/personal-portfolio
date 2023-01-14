@@ -4,11 +4,13 @@ import Link from "next/link";
 import React, { useContext, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
 import { SectionTitle, SectionSubtitle, SectionDescription } from "../components";
 import { contactCardList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
 import { SectionWrapper } from "../wrapper";
+import { fadeIn, slideIn, staggerContainer } from "../utils/motion";
 
 function Contact() {
   const [nameInput, setNameInput] = useState("");
@@ -47,9 +49,18 @@ function Contact() {
       <SectionTitle>Contact Me</SectionTitle>
 
       {/* Contact Section Container */}
-      <div className="xl:max-w-[71.875rem] lg:max-w-[62.5rem] lg:w-full w-[80%] mx-auto grid lg:grid-cols-[30%_60%] grid-cols-1 lg:gap-[10%] gap-16">
+      <motion.div
+        variants={staggerContainer}
+        viewport={{ once: false, amount: 0.25 }}
+        whileInView="show"
+        initial="hidden"
+        className="xl:max-w-[71.875rem] lg:max-w-[62.5rem] lg:w-full w-[80%] mx-auto grid lg:grid-cols-[30%_60%] grid-cols-1 lg:gap-[10%] gap-16"
+      >
         {/* Contact Section Card */}
-        <div className="flex flex-col gap-y-8">
+        <motion.div
+          variants={slideIn("left", "tween", 0, 1)}
+          className="flex flex-col gap-y-8"
+        >
           {/* Contact Section Card Subtitle & Description */}
           <div className="flex flex-col gap-y-2">
             <SectionSubtitle className="lg:text-[26px]">Let's discuss your project</SectionSubtitle>
@@ -62,22 +73,29 @@ function Contact() {
               <Link
                 href={href}
                 key={index}
-                className={`${
-                  theme === "light" ? "bg-white border-primary text-black" : "bg-altSecondary border-altPrimary text-white"
-                } shadow-cardShadow p-5 rounded-md flex flex-col gap-y-3 items-center border-b-[2px] transition-all duration-300 hover:shadow-xl`}
                 target="_blank"
               >
-                <ContactIcon className={`${theme === "light" ? "text-primary" : "text-altPrimary"} text-[22px]`} />
-                <h4 className="font-semibold">{title}</h4>
-                <span className={`${theme === "light" ? "text-light" : "text-altLight"} font-medium lg:text-[14px] text-[12px]`}>{contact}</span>
-                <span className={`${theme === "light" ? "text-primary" : "text-altPrimary"} font-normal text-[14px]`}>Send Me A Message</span>
+                <motion.div
+                  variants={fadeIn("up", "tween", index * 0.1, 1)}
+                  className={`${
+                    theme === "light" ? "bg-white border-primary text-black" : "bg-altSecondary border-altPrimary text-white"
+                  } shadow-cardShadow p-5 rounded-md flex flex-col gap-y-3 items-center border-b-[2px] transition-all duration-300 hover:shadow-xl`}
+                >
+                  <ContactIcon className={`${theme === "light" ? "text-primary" : "text-altPrimary"} text-[22px]`} />
+                  <h4 className="font-semibold">{title}</h4>
+                  <span className={`${theme === "light" ? "text-light" : "text-altLight"} font-medium lg:text-[14px] text-[12px]`}>{contact}</span>
+                  <span className={`${theme === "light" ? "text-primary" : "text-altPrimary"} font-normal text-[14px]`}>Send Me A Message</span>
+                </motion.div>
               </Link>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Contact Section Form */}
-        <div className="flex flex-col gap-y-8 h-full">
+        <motion.div
+          variants={slideIn("right", "tween", 0, 1)}
+          className="flex flex-col gap-y-8 h-full"
+        >
           {/* Contact Section Form Subtitle & Description */}
           <div className="flex flex-col gap-y-2">
             <SectionSubtitle className="lg:text-[26px]">Feel free to contact me</SectionSubtitle>
@@ -147,8 +165,8 @@ function Contact() {
               Send Message <FaPaperPlane />
             </button>
           </form>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

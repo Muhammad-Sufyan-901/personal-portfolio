@@ -21,7 +21,7 @@ export default function Layout({ children }) {
         />
       </Head>
       <Header />
-      {children}
+      <div className="overflow-x-hidden">{children}</div>
       <Footer />
     </React.Fragment>
   );

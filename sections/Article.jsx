@@ -1,9 +1,13 @@
+"use client";
+
 import React, { useContext } from "react";
+import { motion } from "framer-motion";
 import { BiTime, BiComment } from "react-icons/bi";
 import { SectionTitle, SectionSubtitle, SectionDescription, Button } from "../components";
 import { articleList } from "../constants/data";
 import { ThemeContext } from "../context/ThemeContext";
 import { SectionWrapper } from "../wrapper";
+import { fadeIn, staggerContainer } from "../utils/motion";
 
 function Article() {
   const { theme } = useContext(ThemeContext);
@@ -27,15 +31,25 @@ function Article() {
       <SectionTitle>Article</SectionTitle>
 
       {/* Article Section Container */}
-      <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto">
+      <motion.div
+        variants={staggerContainer}
+        viewport={{ once: false, amount: 0.25 }}
+        whileInView="show"
+        initial="hidden"
+        className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto"
+      >
         {/* Article Section Subtitle & Description */}
         <SectionSubtitle>Article About Programming</SectionSubtitle>
         <SectionDescription>There are some article about programming that i create to add more insight and also to share knowledge</SectionDescription>
 
         {/* Article Section Content */}
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-16 lg:w-full w-[80%] lg:mx-0 mx-auto">
+        <motion.div
+          variants={fadeIn("right", "tween", 0, 1)}
+          className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-16 lg:w-full w-[80%] lg:mx-0 mx-auto"
+        >
           {articleList.map(({ title, img, uploadedAt, tags, description }, index) => (
-            <div
+            <motion.div
+              variants={fadeIn("up", "tween", index * 0.1, 1)}
               key={index}
               className={`${theme === "light" ? "bg-white text-black" : "bg-altSecondary text-white"} shadow-cardShadow hover:shadow-xl flex flex-col gap-y-4 rounded-md p-5 transition-all duration-300 group`}
             >
@@ -65,7 +79,7 @@ function Article() {
                 </div>
               </div>
               <div className="flex flex-col gap-y-3">
-                <h4 className="font-semibold text-[1em] cursor-pointer">{title}</h4>
+                <h4 className={`${theme === "light" ? "hover:text-primary" : "hover:text-altPrimary"} font-semibold text-[1em] cursor-pointer transition-all duration-300`}>{title}</h4>
                 <p className="font-normal text-[0.9em]">{truncateString(description)}</p>
               </div>
               <Button
@@ -76,10 +90,10 @@ function Article() {
               >
                 Read More
               </Button>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

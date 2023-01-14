@@ -48,7 +48,7 @@ function PortfolioPage() {
 
   return (
     <section className={`${theme === "light" ? "bg-[#fefefe]" : "bg-[#0e1b31]"} p-sectionPadding pb-32 transition-all duration-300`}>
-      <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto mt-10">
+      <div className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto mt-10 overflow-x-hidden">
         {/* Portfolio Page Subtitle & Description */}
         <SectionSubtitle>All Portfolio</SectionSubtitle>
         <SectionDescription>These all my project that i have created while learning about frontend development.</SectionDescription>
