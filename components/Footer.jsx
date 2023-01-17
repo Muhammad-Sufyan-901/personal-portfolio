@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <motion.footer
       variants={staggerContainer}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       whileInView="show"
       initial="hidden"
       className={`${theme === "light" ? "bg-primary" : "bg-altPrimary"} py-16 w-full text-white text-center flex flex-col items-center gap-y-16 transition-all duration-300`}

@@ -14,7 +14,7 @@ export default function SectionWrapper(MainSection, activeDots = "") {
             {/* Section Social Media Links */}
             <motion.div
               variants={staggerContainer}
-              viewport={{ once: false, amount: 0.25 }}
+              viewport={{ once: true, amount: 0.25 }}
               whileInView="show"
               initial="hidden"
               className="absolute bottom-6 left-6 flex-col gap-y-3 lg:flex hidden z-10"
@@ -41,7 +41,7 @@ export default function SectionWrapper(MainSection, activeDots = "") {
             {/* Section Dots Navigations */}
             <motion.div
               variants={staggerContainer}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               whileInView="show"
               initial="hidden"
               className="absolute bottom-[50%] right-6 translate-y-[50%] lg:flex hidden flex-col gap-y-2 z-10"

@@ -25,7 +25,7 @@ function About() {
       {/* About Content Container */}
       <motion.div
         variants={staggerContainer}
-        viewport={{ once: false, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.25 }}
         whileInView="show"
         initial="hidden"
         className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto grid lg:grid-cols-[35%_50%] lg:gap-[15%] grid-cols-1 gap-4"

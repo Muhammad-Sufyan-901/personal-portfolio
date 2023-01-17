@@ -33,7 +33,7 @@ function Article() {
       {/* Article Section Container */}
       <motion.div
         variants={staggerContainer}
-        viewport={{ once: false, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.25 }}
         whileInView="show"
         initial="hidden"
         className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto"

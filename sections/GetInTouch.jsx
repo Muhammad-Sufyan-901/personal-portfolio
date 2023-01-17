@@ -15,7 +15,7 @@ function GetInTouch() {
       {/* Get In Touch Container */}
       <motion.div
         variants={staggerContainer}
-        viewport={{ once: false, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.25 }}
         whileInView="show"
         initial="hidden"
         className="flex justify-center items-center w-full"

@@ -11,7 +11,7 @@ export default function SectionTitle({ children, ...props }) {
   return (
     <motion.div
       variants={textVariants(1)}
-      viewport={{ once: false }}
+      viewport={{ once: true }}
       whileInView="show"
       initial="hidden"
     >

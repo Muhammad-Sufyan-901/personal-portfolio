@@ -25,7 +25,7 @@ function Home() {
       {/* Home Container */}
       <motion.div
         variants={staggerContainer}
-        viewport={{ once: false, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.25 }}
         whileInView="show"
         initial="hidden"
         className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto grid lg:grid-cols-2 grid-cols-1 pt-16"
@@ -92,7 +92,7 @@ function Home() {
       {/* Home Scroll Down Button */}
       <motion.div
         variants={slideIn("up", "tween", 0.2, 1.1)}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         whileInView="show"
         initial="hidden"
       >

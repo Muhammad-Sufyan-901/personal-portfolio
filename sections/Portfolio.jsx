@@ -59,7 +59,7 @@ function Portfolio() {
       {/* Portfolio Section Container */}
       <motion.div
         variants={staggerContainer}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         whileInView="show"
         initial="hidden"
         className="xl:max-w-sectionWidth max-w-[62.5rem] mx-auto"

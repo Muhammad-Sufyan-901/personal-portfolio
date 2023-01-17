@@ -51,7 +51,7 @@ function Contact() {
       {/* Contact Section Container */}
       <motion.div
         variants={staggerContainer}
-        viewport={{ once: false, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.25 }}
         whileInView="show"
         initial="hidden"
         className="xl:max-w-[71.875rem] lg:max-w-[62.5rem] lg:w-full w-[80%] mx-auto grid lg:grid-cols-[30%_60%] grid-cols-1 lg:gap-[10%] gap-16"
