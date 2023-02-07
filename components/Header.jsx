@@ -49,7 +49,7 @@ export default function Header() {
           scroll={false}
           className={`${theme === "light" ? "text-primary" : "text-altPrimary"} font-semibold lg:text-[1.5rem] text-lg`}
         >
-          Test
+          {name}
         </Link>
 
         {/* Header Link */}
